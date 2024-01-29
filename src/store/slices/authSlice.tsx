@@ -11,7 +11,7 @@ interface authSliceInterface {
     loginUserDetails : UserDetails ,
     loading : boolean,
     user : UserDetails[],
-    token : string
+    token : string | null
 }
 
 const initialState : authSliceInterface = {
