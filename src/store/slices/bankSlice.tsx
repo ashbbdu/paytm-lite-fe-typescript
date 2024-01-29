@@ -1,13 +1,17 @@
 
 import { createSlice , PayloadAction } from '@reduxjs/toolkit'
-const initialState = {
+interface BankInterface {
+    bankBalance : number | null
+}
+
+const initialState : BankInterface = {
     bankBalance : 0
 };
 const bankSlice = createSlice({
     name : "bankSlice",
     initialState : initialState,
     reducers : {
-        setBalance(state , action : PayloadAction <number>){
+        setBalance(state , action : PayloadAction <number | null>){
             state.bankBalance = action.payload;
         }
     }

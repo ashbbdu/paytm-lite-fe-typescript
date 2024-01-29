@@ -1,16 +1,14 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch  } from "react-redux"
 import { bankBalance } from "../services/operations/bankAPI";
 import UserDetails from "../components/UserDetails";
 import SearchComponent from "../components/SearchComponent";
 import UserCard from "../components/UserCard";
 import { users } from "../services/operations/userAPI";
-import { useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { user  } = useAppSelector(state => state.auth)
   const token = localStorage.getItem("token");
   const [searchText, setSearchText] = useState("");
@@ -26,7 +24,7 @@ const Dashboard = () => {
     allUsers();
   }, [searchText]);
 
-  const getUserBalance = async () => {
+  const getUserBalance = async () : Promise<void> => {
     dispatch(bankBalance(token))
 
   }
@@ -43,7 +41,7 @@ const Dashboard = () => {
         allUsers={allUsers}
       />
   
-      {user.length > 0 ?  user.map((user , index) => {
+      {user?.length > 0 ?  user?.map((user , index) => {
         return (
           <UserCard
             getUserBalance={getUserBalance}

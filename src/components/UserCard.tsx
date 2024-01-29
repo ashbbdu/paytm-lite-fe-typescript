@@ -1,7 +1,7 @@
+import { UserCardInterface } from "../interface";
 import { PaymentModal } from "./PaymentModal";
 
-
-const UserCard = ({ userName, icon, userId, getUserBalance, image, index }) => {
+const UserCard = ({ userName, icon, userId, getUserBalance, image } : UserCardInterface ) => {
   return (
     <>
       <div className="flex items-center justify-between py-2 my-2 bg-slate-200 cursor-pointer px-1">

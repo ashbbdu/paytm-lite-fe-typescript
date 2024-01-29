@@ -7,6 +7,7 @@ import { setBalance } from '../store/slices/bankSlice'
 
 const Navbar = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
     const { profilePic } = JSON.parse(localStorage.getItem("userDetails"))
     const handleLogout = () => {
       dispatch(setToken(null))
@@ -15,6 +16,7 @@ const Navbar = () => {
       localStorage.removeItem("token")
       localStorage.removeItem("userDetails")
       toast.success("Logged Out")
+      navigate("/")
     }
   return (
     <div className='flex items-center justify-between bg-white px-2 py-4 border border-b-slate-300'>

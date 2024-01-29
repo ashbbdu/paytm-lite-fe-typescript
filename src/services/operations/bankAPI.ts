@@ -20,11 +20,12 @@ export const bankBalance = (token : string) => {
     }
 }
 
-export const transferBalance = (userId , amount , setAmount , setShowModal , getUserBalance , token) => {
+
+export const transferBalance = (userId : string | number  , amount : string , setAmount : () => void , setShowModal : () => void  , getUserBalance : () => void  , token : string) => {
     return async (dispatch : any) => {
         dispatch(setLoading(true));
         try {
-            if (amount > 0) {
+            if (parseInt(amount) > 0) {
               const sendMoney = await apiConnector("POST" , FUNDTRANSFER_API,
                 {
                   recieversId: userId,

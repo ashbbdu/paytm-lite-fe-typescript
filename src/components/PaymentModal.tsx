@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { MdOutlineCancel } from "react-icons/md";
+import { PaymentModalInterface } from "../interface";
 import { transferBalance } from "../services/operations/bankAPI";
 import { useAppDispatch } from "../store/hooks";
 
-export function PaymentModal({ userId, userName, icon ,getUserBalance }) {
+export function PaymentModal({ userId, userName, icon ,getUserBalance } : PaymentModalInterface) {
   const dispatch = useAppDispatch()
   const token = localStorage.getItem("token");
   const [showModal, setShowModal] = React.useState(false);

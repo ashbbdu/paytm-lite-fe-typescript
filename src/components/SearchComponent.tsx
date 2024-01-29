@@ -1,5 +1,6 @@
+import { SearchComponentInterface } from "../interface";
 
-const SearchComponent = ({searchText , setSearchText , allUsers}) => {
+const SearchComponent = ({searchText  , setSearchText , allUsers } : SearchComponentInterface) => {
 
     const handleChange = async (e : any) => {
         setSearchText(e.target.value);
